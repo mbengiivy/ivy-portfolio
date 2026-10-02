@@ -1,0 +1,30 @@
+.shell {
+  position: relative;
+  z-index: var(--z-base);
+  display: grid;
+  gap: var(--shell-gap);
+  align-items: start;
+  width: 100%;
+  max-width: var(--shell-max);
+  margin-inline: auto;
+  padding: var(--space-4) var(--container-pad) var(--space-6);
+}
+
+.content {
+  display: grid;
+  gap: var(--shell-gap);
+  /* Keeps long tag rows from stretching the grid column */
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    padding-top: var(--space-5);
+  }
+
+  .sidebarColumn {
+    position: sticky;
+    top: var(--space-5);
+  }
+}

@@ -1,0 +1,74 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 703 >>
+stream
+BT
+1 0 0 1 64 740 Tm
+0.102 0.063 0.200 rg
+/F1 30 Tf
+(Ivy Mbengi) Tj
+0 -38 Td
+0.486 0.227 0.929 rg
+/F1 14 Tf
+(Cloud Engineer  |  Solutions Architect) Tj
+0 -30 Td
+0.102 0.063 0.200 rg
+/F1 11 Tf
+(Nairobi, Kenya) Tj
+0 -20 Td
+0.102 0.063 0.200 rg
+/F1 11 Tf
+(mbengiivy@gmail.com) Tj
+0 -20 Td
+0.102 0.063 0.200 rg
+/F1 11 Tf
+(linkedin.com/in/ivy-mbengi  |  github.com/mbengiivy) Tj
+0 -54 Td
+0.706 0.408 0.612 rg
+/F1 16 Tf
+(PLACEHOLDER DOCUMENT) Tj
+0 -26 Td
+0.102 0.063 0.200 rg
+/F1 11 Tf
+(Replace public/Ivy_Mbengi_CV.pdf with the real CV export.) Tj
+0 -18 Td
+0.102 0.063 0.200 rg
+/F1 11 Tf
+(Keep the same file name so the Download CV button keeps working.) Tj
+ET
+0.486 0.227 0.929 RG
+1.5 w
+64 688 m
+531 688 l
+S
+endstream
+endobj
+6 0 obj
+<< /Title (Ivy Mbengi - CV placeholder) /Author (Ivy Mbengi) /Producer (portfolio build script) >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000338 00000 n 
+0000001092 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R /Info 6 0 R >>
+startxref
+1206
+%%EOF

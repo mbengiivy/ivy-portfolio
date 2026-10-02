@@ -1,0 +1,105 @@
+.bio > p + p {
+  margin-top: var(--space-4);
+}
+
+.bio p {
+  font-size: var(--fs-lead);
+  color: var(--text-body);
+}
+
+.highlight {
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+/* ---- Quick facts ---- */
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.fact {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  background-color: var(--inset-bg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: var(--text-emphasis);
+}
+
+.factIcon {
+  font-size: 0.9rem;
+  color: var(--accent-warm);
+}
+
+/* ---- "What I'm Doing" ---- */
+
+.subheading {
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-5);
+  font-size: var(--fs-h3);
+  letter-spacing: -0.015em;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.service {
+  display: flex;
+  gap: var(--space-4);
+  height: 100%;
+  padding: var(--space-5);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background-color: var(--card-bg-flat);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.service:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-accent);
+  background-color: rgba(var(--accent-warm-rgb), 0.1);
+}
+
+.serviceIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--icon-box-bg);
+  color: var(--text-emphasis);
+  font-size: 1.15rem;
+}
+
+.serviceTitle {
+  font-size: var(--fs-h4);
+  letter-spacing: -0.01em;
+}
+
+.serviceText {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  color: var(--text-body);
+}
+
+@media (min-width: 720px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

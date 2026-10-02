@@ -1,0 +1,227 @@
+.sidebar {
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  text-align: center;
+}
+
+/* ---- Identity ---- */
+
+.identity {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-raised);
+  background: var(--medal-bg);
+  box-shadow: var(--shadow-accent);
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.42rem;
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.roleChip {
+  padding: var(--space-1) var(--space-4);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  background-color: var(--inset-bg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-emphasis);
+}
+
+/* ---- Mobile disclosure toggle ---- */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  background-color: var(--inset-bg);
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-emphasis);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.toggle:hover {
+  border-color: var(--border-accent);
+  background-color: rgba(var(--accent-warm-rgb), 0.16);
+}
+
+.toggleIcon {
+  font-size: 0.95rem;
+  transition: rotate var(--transition-base);
+}
+
+.toggle[aria-expanded='true'] .toggleIcon {
+  rotate: 180deg;
+}
+
+/* ---- Collapsible body ---- */
+
+.details {
+  overflow: hidden;
+}
+
+.divider {
+  height: 1px;
+  margin: var(--space-5) 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--paper-rgb), 0.2) 50%,
+    transparent 100%
+  );
+}
+
+.contactList {
+  display: grid;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.iconBox {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--icon-box-bg);
+  color: var(--text-emphasis);
+  font-size: 1.05rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contactText {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.contactLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contactValue {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  color: var(--paper);
+  overflow-wrap: break-word;
+}
+
+a.contactValue:hover {
+  color: var(--accent-light);
+}
+
+/* ---- Socials ---- */
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.social {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  background-color: var(--inset-bg);
+  color: var(--text-emphasis);
+  font-size: 1rem;
+  transition: transform var(--transition-base), background-color var(--transition-base),
+    border-color var(--transition-base), color var(--transition-base);
+}
+
+.social:hover {
+  transform: translateY(-3px);
+  background-color: var(--accent);
+  border-color: var(--border-fill);
+  color: var(--paper);
+}
+
+/* ---- Download CV ---- */
+
+.download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-5);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--border-fill);
+  border-radius: var(--radius-pill);
+  background-color: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.download:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.download:disabled {
+  cursor: default;
+  transform: none;
+  background-color: rgba(var(--accent-rgb), 0.5);
+}
+
+/* ==========================================================================
+   Desktop: the card is always expanded, so the toggle disappears
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  .toggle {
+    display: none;
+  }
+
+  .details {
+    height: auto !important;
+    opacity: 1 !important;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,93 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.card {
+  height: 100%;
+  padding: var(--space-5);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background-color: var(--card-bg-flat);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-accent);
+  background-color: rgba(var(--accent-warm-rgb), 0.09);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--icon-box-bg);
+  color: var(--text-emphasis);
+  font-size: 1.1rem;
+}
+
+.category {
+  font-size: var(--fs-h4);
+  letter-spacing: -0.01em;
+}
+
+.count {
+  margin-top: 1px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent-warm);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  padding: 4px var(--space-3);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-pill);
+  background-color: var(--inset-bg);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-emphasis);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.tag:hover {
+  border-color: var(--border-fill);
+  background-color: rgba(var(--accent-rgb), 0.3);
+  color: var(--paper);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Cloud carries the longest tag list — give it the full row */
+  .grid > li[data-wide='true'] {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,140 @@
+/* Reference-style timeline: an icon-box header, then a single column with a
+   vertical hairline and small accent dots. */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.headerIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--icon-box-bg);
+  color: var(--text-emphasis);
+  font-size: 1.15rem;
+}
+
+.headerTitle {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.015em;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 22px;
+  padding-left: var(--space-6);
+}
+
+/* The spine */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 0;
+  width: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent-warm-rgb), 0.75) 0%,
+    rgba(var(--paper-rgb), 0.2) 100%
+  );
+}
+
+.item {
+  position: relative;
+  padding-bottom: var(--space-6);
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+/* The dot, centred on the spine */
+.dot {
+  position: absolute;
+  top: 7px;
+  left: calc(-1 * var(--space-6));
+  width: 9px;
+  height: 9px;
+  translate: -4px 0;
+  border-radius: 50%;
+  background-color: var(--accent-warm);
+  box-shadow: 0 0 0 4px rgba(var(--accent-warm-rgb), 0.18);
+}
+
+.role {
+  font-size: var(--fs-h4);
+  letter-spacing: -0.01em;
+}
+
+.org {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-emphasis);
+}
+
+.separator {
+  color: var(--text-muted);
+}
+
+.location {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* The reference prints the date range in its accent colour */
+.period {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  color: var(--accent-warm);
+}
+
+.points {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.point {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  color: var(--text-body);
+}
+
+.pointDot {
+  margin-top: 0.58em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .timeline {
+    margin-left: 4px;
+    padding-left: var(--space-5);
+  }
+
+  .dot {
+    left: calc(-1 * var(--space-5));
+  }
+}

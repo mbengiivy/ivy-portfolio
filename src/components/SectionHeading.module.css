@@ -1,0 +1,26 @@
+/* The reference's signature header: a large title with a short accent rule
+   sitting just beneath it. */
+
+.heading {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  letter-spacing: -0.025em;
+}
+
+.rule {
+  width: 38px;
+  height: 4px;
+  margin-top: var(--space-3);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--accent-warm) 0%, var(--accent) 160%);
+}
+
+.subtitle {
+  max-width: 62ch;
+  margin-top: var(--space-4);
+  font-size: var(--fs-lead);
+  color: var(--text-body);
+}

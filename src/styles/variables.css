@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Design tokens — Ivy Mbengi portfolio
+
+   Dark "vCard" theme: a deep base colour, with card surfaces built by layering
+   translucent paper-white on top of it. Everything resolves back to the five
+   palette colours of the active theme — translucent variants use rgba() over
+   the same channels, so no extra hues creep in.
+
+   SWITCHING THEMES
+   Set the attribute on <html> in index.html:
+       <html lang="en" data-theme="violet">   ← plum + violet (active)
+       <html lang="en" data-theme="azure">    ← midnight navy + royal blue
+       <html lang="en" data-theme="teal">     ← original steel navy + teal
+   Everything else in the stylesheet reads these five roles, so nothing below
+   needs to change. public/favicon.svg carries its own copy of the colours —
+   it has a note listing the alternates.
+
+   ROLE NAMES (deliberately not colour names, so themes can swap freely)
+     --primary-dark   page background and deep surfaces
+     --accent         fills: buttons, icon boxes, gradients
+     --accent-light   emphasis text and icon glyphs (highest contrast)
+     --paper          primary text and headings
+     --accent-warm    accent text: dates, active nav, timeline dots
+
+   Note: --accent is a fill colour, never small text. It is the one role that
+   does not clear 4.5:1 against --primary-dark in either theme.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Theme: Azure
+     Ink Navy  #081429   Royal Blue #2563EB   Ice Blue #D6E6FF
+     Paper     #F6F9FF   Sky        #7DD3FC
+   A colder, deeper blue than the original steel navy — Ink Navy is roughly
+   5x darker than #0B3954, so the two read as distinctly different blues.
+   Contrast against Ink Navy — Paper 17.4:1, Ice 14.6:1, Sky 11.0:1,
+   Royal Blue 3.6:1 (fills only). Paper on Royal Blue: 4.9:1.
+   -------------------------------------------------------------------------- */
+
+:root[data-theme='azure'] {
+  --primary-dark: #081429;
+  --accent: #2563eb;
+  --accent-light: #d6e6ff;
+  --paper: #f6f9ff;
+  --accent-warm: #7dd3fc;
+
+  --primary-dark-rgb: 8, 20, 41;
+  --accent-rgb: 37, 99, 235;
+  --accent-light-rgb: 214, 230, 255;
+  --paper-rgb: 246, 249, 255;
+  --accent-warm-rgb: 125, 211, 252;
+
+  /* Deepest shade of the base, for shadows */
+  --shadow-rgb: 2, 6, 15;
+}
+
+/* --------------------------------------------------------------------------
+   Theme: Violet (active)
+     Plum Ink   #1A1033   Violet #7C3AED   Soft Lilac #E6DCFF
+     Moonlight  #FBF8FF   Blush  #F2A1C0
+   Contrast against Plum Ink — Moonlight 17.1:1, Soft Lilac 13.8:1,
+   Blush 9.1:1, Violet 3.2:1 (fills only). Moonlight on Violet: 5.4:1.
+   -------------------------------------------------------------------------- */
+
+:root,
+:root[data-theme='violet'] {
+  --primary-dark: #1a1033;
+  --accent: #7c3aed;
+  --accent-light: #e6dcff;
+  --paper: #fbf8ff;
+  --accent-warm: #f2a1c0;
+
+  --primary-dark-rgb: 26, 16, 51;
+  --accent-rgb: 124, 58, 237;
+  --accent-light-rgb: 230, 220, 255;
+  --paper-rgb: 251, 248, 255;
+  --accent-warm-rgb: 242, 161, 192;
+
+  --shadow-rgb: 8, 4, 18;
+}
+
+/* --------------------------------------------------------------------------
+   Theme: Teal (the original palette)
+     Primary Dark #0B3954   Accent Teal #087E8B   Light Mint #E5F4E3
+     Off-White    #FFFFEF   Dusty Rose  #C5979D
+   Contrast against Primary Dark — Off-White 14.4:1, Light Mint 13.0:1,
+   Dusty Rose 4.8:1, Accent Teal 2.5:1 (fills only).
+   -------------------------------------------------------------------------- */
+
+:root[data-theme='teal'] {
+  --primary-dark: #0b3954;
+  --accent: #087e8b;
+  --accent-light: #e5f4e3;
+  --paper: #ffffef;
+  --accent-warm: #c5979d;
+
+  --primary-dark-rgb: 11, 57, 84;
+  --accent-rgb: 8, 126, 139;
+  --accent-light-rgb: 229, 244, 227;
+  --paper-rgb: 255, 255, 239;
+  --accent-warm-rgb: 197, 151, 157;
+
+  --shadow-rgb: 3, 18, 27;
+}
+
+/* --------------------------------------------------------------------------
+   Everything below is theme-agnostic
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* ---- Surfaces ---- */
+  --page-bg: var(--primary-dark);
+  --card-bg: linear-gradient(
+    145deg,
+    rgba(var(--paper-rgb), 0.075) 0%,
+    rgba(var(--paper-rgb), 0.025) 55%,
+    rgba(var(--paper-rgb), 0.04) 100%
+  );
+  --card-bg-flat: rgba(var(--paper-rgb), 0.045);
+  --inset-bg: rgba(var(--primary-dark-rgb), 0.55);
+  --nav-bg: rgba(var(--primary-dark-rgb), 0.95);
+  --hero-gradient: linear-gradient(
+    135deg,
+    var(--primary-dark) 0%,
+    var(--primary-dark) 32%,
+    var(--accent) 100%
+  );
+  --deep-fade: rgba(var(--primary-dark-rgb), 0.92);
+  --icon-box-bg: linear-gradient(
+    145deg,
+    rgba(var(--accent-rgb), 0.45) 0%,
+    rgba(var(--accent-rgb), 0.14) 100%
+  );
+  --medal-bg: linear-gradient(145deg, var(--accent) 0%, var(--deep-fade) 100%);
+
+  /* ---- Text ---- */
+  --text-heading: var(--paper);
+  --text-body: rgba(var(--paper-rgb), 0.72);
+  --text-muted: rgba(var(--paper-rgb), 0.5);
+  --text-accent: var(--accent-warm);
+  --text-emphasis: var(--accent-light);
+
+  /* ---- Borders ---- */
+  --border-hairline: rgba(var(--paper-rgb), 0.11);
+  --border-raised: rgba(var(--paper-rgb), 0.18);
+  --border-accent: rgba(var(--accent-warm-rgb), 0.5);
+  --border-fill: rgba(var(--accent-rgb), 0.75);
+  /* Catches the light along a card's top-left edge */
+  --border-sheen: linear-gradient(
+    145deg,
+    rgba(var(--paper-rgb), 0.3) 0%,
+    rgba(var(--paper-rgb), 0) 45%
+  );
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 4px 14px rgba(var(--shadow-rgb), 0.3);
+  --shadow-md: 0 14px 34px rgba(var(--shadow-rgb), 0.42);
+  --shadow-lg: 0 24px 60px rgba(var(--shadow-rgb), 0.52);
+  --shadow-accent: 0 12px 30px rgba(var(--accent-rgb), 0.45);
+
+  /* ---- Typography ---- */
+  --font-heading: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+
+  --fs-display: clamp(2.1rem, 5.2vw, 3.4rem);
+  --fs-h2: clamp(1.6rem, 3.4vw, 2.1rem);
+  --fs-h3: clamp(1.1rem, 2vw, 1.3rem);
+  --fs-h4: 1.02rem;
+  --fs-lead: clamp(0.98rem, 1.6vw, 1.08rem);
+  --fs-body: 0.97rem;
+  --fs-sm: 0.88rem;
+  --fs-xs: 0.76rem;
+  --fs-2xs: 0.68rem;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.4;
+  --lh-normal: 1.7;
+
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.16em;
+
+  /* ---- Spacing ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.75rem;
+  --space-8: 4rem;
+
+  /* ---- Layout ---- */
+  --shell-max: 1240px;
+  --sidebar-width: 326px;
+  --shell-gap: var(--space-5);
+  --container-pad: clamp(0.9rem, 3vw, 1.5rem);
+  --panel-pad: clamp(1.25rem, 3.2vw, 2.25rem);
+  /* Sticky nav pill height plus breathing room, used for scroll offsets */
+  --nav-offset: 92px;
+
+  /* ---- Radii ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-fast: 160ms var(--ease-out);
+  --transition-base: 260ms var(--ease-out);
+
+  /* ---- Depth ---- */
+  --z-base: 1;
+  --z-nav: 50;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --nav-offset: 84px;
+  }
+}
